@@ -15,8 +15,8 @@ This repository contains a two-node Docker deployment running on a Raspberry Pi 
 - **MacBook Pro (169.254.1.1)** runs LM Studio (127.0.0.1:1234), an Nginx proxy (0.0.0.0:1234) and Node Exporter.  
 - A dedicated USB-Ethernet link (169.254.1.x/16) carries API calls and monitoring traffic.
 
----
 
+---
 
 ## Prerequisites  
 - **Raspberry Pi 4B** with Docker & Docker Compose  
