@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Mini-Cloud Hub</title>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" 
+    rel="stylesheet"
+  />
+  <style>
+    /* reset & base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #202124;
+    }
+    header p {
+      color: #5f6368;
+    }
+    /* grid of service cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(60,64,67,0.15),
+                  0 4px 8px rgba(60,64,67,0.1);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(60,64,67,0.2),
+                  0 8px 16px rgba(60,64,67,0.15);
+    }
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #4285F4;
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #202124;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #5f6368;
+      margin-bottom: 1.25rem;
+    }
+    .card a.button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #4285F4;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color .2s ease;
+    }
+    .card a.button:hover {
+      background-color: #3367D6;
+    }
+    code {
+      background: #e8eaed;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Personal Mini-Cloud Platform</h1>
+      <p>A Computer Network Management (CNM) Project Dashboard</p>
+    </header>
+    <div class="grid">
+      <!-- Nextcloud Card -->
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h2>Nextcloud</h2>
+        <p>Personal cloud storage (like Google Drive).</p>
+        <a
+          href="http://169.254.220.127:8080"
+          class="button"
+          target="_blank"
+        >Open Nextcloud</a>
+      </div>
+
+      <!-- Jupyter Lab Card -->
+      <div class="card">
+        <div class="card-icon">📒</div>
+        <h2>Jupyter Lab</h2>
+        <p>Interactive Python notebooks for analysis & prototyping.</p>
+        <a
+          href="http://169.254.220.127:8888"
+          class="button"
+          target="_blank"
+        >Launch Jupyter</a>
+      </div>
+
+      <!-- Chat UI Card -->
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h2>Chat UI</h2>
+        <p>Frontend for interacting with the LLaMA inference engine.</p>
+        <a
+          href="http://169.254.220.127:3000"
+          class="button"
+          target="_blank"
+        >Open Chat UI</a>
+      </div>
+
+      <!-- Samba Share Card -->
+      <div class="card">
+        <div class="card-icon">💾</div>
+        <h2>Samba Share</h2>
+        <p>Access your shared folder via SMB.</p>
+        <p><code>\\&lt;pi-ip&gt;\CloudShare</code></p>
+        <a
+          href="smb://169.254.220.127/CloudShare"
+          class="button"
+          onclick="alert(
+            'SMB Path: \\\\\\<pi-ip>\\\\CloudShare\n' +
+            'Username: irfan\nPassword: ComputerNetworkManagement'
+          );"
+        >View Details</a>
+      </div>
+
+      <!-- Static Website Card -->
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h2>Mini-Cloud Website</h2>
+        <p>This dashboard itself is served by NGINX on port 80.</p>
+        <a
+          href="http://169.254.220.127"
+          class="button"
+          target="_blank"
+        >View Website</a>
+      </div>
+
+      <!-- Grafana Card -->
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h2>Grafana</h2>
+        <p>Visualize CPU/Memory/Disk/Network metrics for Pi & containers.</p>
+        <a
+          href="http://169.254.220.127:3002"
+          class="button"
+          target="_blank"
+        >Open Grafana</a>
+      </div>
+
+      <!-- Prometheus Card -->
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h2>Prometheus</h2>
+        <p>Metrics database scraping cAdvisor & Node Exporter.</p>
+        <a
+          href="http://169.254.220.127:9090"
+          class="button"
+          target="_blank"
+        >Open Prometheus</a>
+      </div>
+
+      <!-- cAdvisor Card -->
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h2>cAdvisor</h2>
+        <p>Container-level resource stats (CPU/Memory/Network/Disk).</p>
+        <a
+          href="http://169.254.220.127:8086"
+          class="button"
+          target="_blank"
+        >Open cAdvisor</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
